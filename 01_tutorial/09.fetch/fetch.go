@@ -1,5 +1,4 @@
 //fetch exibe o conteudo encontrado em cada URL especificada
-
 package main
 
 import (

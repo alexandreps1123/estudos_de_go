@@ -10,7 +10,7 @@ import (
 func main() {
 	//echo1
 	var s, sep string
-	for i := 0; i < len(os.Args); i++ {
+	for i := 1; i < len(os.Args); i++ {
 		s += sep + os.Args[i]
 		sep = " "
 	}
@@ -18,15 +18,15 @@ func main() {
 
 	//echo2
 	s, sep = "", ""
-	for _, arg := range os.Args[0:] {
+	for _, arg := range os.Args[1:] {
 		s += sep + arg
 		sep = " "
 	}
 	fmt.Println(s)
 
 	//echo3
-	fmt.Println(strings.Join(os.Args[0:], " "))
+	fmt.Println(strings.Join(os.Args[1:], " "))
 
 	//extra
-	fmt.Println(os.Args[0:])
+	fmt.Println(os.Args[1:])
 }

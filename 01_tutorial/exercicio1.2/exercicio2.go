@@ -9,14 +9,14 @@ import (
 func main() {
 	//echo1
 	var s, sep string
-	for i := 0; i < len(os.Args); i++ {
+	for i := 1; i < len(os.Args); i++ {
 		s += sep + os.Args[i]
 		sep = " "
 		fmt.Println(i, s)
 	}
 
 	s, sep = "", ""
-	for i, arg := range os.Args[0:] {
+	for i, arg := range os.Args[1:] {
 		s += sep + arg
 		sep = " "
 		println(i, s)
