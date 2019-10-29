@@ -1,12 +1,10 @@
-//fetch: usar io.Copy(dst, src) no lugar de ioutil.ReadAll
-//io.Copy(dst, src) le de 'src' e escreve em 'dst'
-//para copiar o corpo da resposta para os.Stdout
+//modificar fetch para que exiba tambem o codigo de status HTTP
 
 package main
 
 import (
 	"fmt"
-	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
 )
@@ -18,16 +16,14 @@ func main() {
 			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
 			os.Exit(1)
 		}
-
-		b, err := io.Copy(os.Stdout, resp.Body)
-
+		//imprime o codigo de status http
+		fmt.Println("HTTP Response Status:", resp.StatusCode, http.StatusText(resp.StatusCode))
+		b, err := ioutil.ReadAll(resp.Body)
 		resp.Body.Close()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "fetch: reading %s: %v\n", url, err)
 			os.Exit(1)
 		}
-
-		fmt.Printf("%d", b)
-
+		fmt.Printf("%s", b)
 	}
 }
