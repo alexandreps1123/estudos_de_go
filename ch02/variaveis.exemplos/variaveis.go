@@ -30,6 +30,11 @@ func main() {
 	fmt.Println(*c)
 	teste := newInt()
 	fmt.Println(*teste, teste)
+
+	//cada chamada de new devolve uma variavel distinta com endereco unico
+	z := new(int)
+	y := new(int)
+	fmt.Println(z == y) //'false
 }
 
 func incr(p *int) int {
