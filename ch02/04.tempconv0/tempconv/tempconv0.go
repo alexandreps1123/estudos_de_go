@@ -19,3 +19,6 @@ func FToC(f Fahrenheit) Celsius { return Celsius((f - 32) * 5 / 9) }
 
 //imprime °C em variaveis do tipo Celsius
 func (c Celsius) String() string { return fmt.Sprintf("%g°C", c) }
+
+//imprime °F em variaveis do tipo Fahrenheit
+func (f Fahrenheit) String() string { return fmt.Sprintf("%g°F", f) }
